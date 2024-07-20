@@ -64,7 +64,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nytimes.com%2F2019%2F07%2F24%2Ftechnology%2Fyoutube-financial-disclosure-google.html&psig=AOvVaw1zEIhdTHaLCDII3UP6iB0_&ust=1721584371427000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjk4NeXtocDFQAAAAAdAAAAABAQ') no-repeat center center fixed;
+        background: url('bg.jpg') no-repeat center center fixed;
         background-size: cover;
     }
     .sidebar .sidebar-content {
