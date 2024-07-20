@@ -30,7 +30,7 @@ def set_background('bg.jpg'):
     css = f"""
     <style>
     .reportview-container {{
-        background: url('{image_url}') no-repeat center center fixed;
+        background: url('bg.jpg') no-repeat center center fixed;
         background-size: cover;
         min-height: 100vh;
         color: #ffffff;
