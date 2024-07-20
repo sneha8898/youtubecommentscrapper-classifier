@@ -2,5 +2,4 @@ streamlit
 pandas
 google-api-python-client
 textblob
-pillow
-utils
+Pillow==9.5.0
