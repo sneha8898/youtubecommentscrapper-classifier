@@ -17,7 +17,7 @@ def classify(comments):
         comment_sentiments.append(sentiment)
     return comment_sentiments
 
-def set_background(image_url):
+def set_background('bg.jpg'):
     """
     Generates CSS for setting a background image.
     
