@@ -4,10 +4,8 @@ from googleapiclient.discovery import build
 from textblob import TextBlob
 import re
 
-# Predefined API key
 API_KEY = "AIzaSyDohi1bI6QnqMBbN7LOggmpWvabYM04j8c"
 
-# Function to extract video ID from URL
 def extract_video_id(url):
     video_id_match = re.search(r"v=([a-zA-Z0-9_-]+)", url)
     if video_id_match:
@@ -16,7 +14,7 @@ def extract_video_id(url):
         st.error("Invalid YouTube URL. Please make sure the URL is in the format: https://www.youtube.com/watch?v=VIDEO_ID")
         return None
 
-# Function to fetch YouTube video title and all comments
+
 def fetch_youtube_video_details(video_id, api_key):
     youtube = build("youtube", "v3", developerKey=api_key)
 
@@ -50,7 +48,6 @@ def fetch_youtube_video_details(video_id, api_key):
 
     return video_title, comments
 
-# Function to classify comments
 def classify_comments(comments):
     comment_sentiments = []
     for comment in comments:
@@ -59,13 +56,28 @@ def classify_comments(comments):
         comment_sentiments.append(sentiment)
     return comment_sentiments
 
-# Streamlit App
+
 st.title("YouTube Video Comments Sentiment Analysis")
 
-# Ask for the YouTube video URL
+
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nytimes.com%2F2019%2F07%2F24%2Ftechnology%2Fyoutube-financial-disclosure-google.html&psig=AOvVaw1zEIhdTHaLCDII3UP6iB0_&ust=1721584371427000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjk4NeXtocDFQAAAAAdAAAAABAQ') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .sidebar .sidebar-content {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 video_url = st.text_input("Enter YouTube Video URL", placeholder="https://www.youtube.com/watch?v=VIDEO_ID")
 
-# Fetch video details and comments when button is clicked
 if st.button("Fetch Video Details and Comments"):
     video_id = extract_video_id(video_url)
     if video_id:
