@@ -1,4 +1,7 @@
 streamlit
 pandas
-google-api-python-client
+googleapiclient.discovery
 textblob
+re
+PIL
+time
