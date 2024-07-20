@@ -3,4 +3,4 @@ pandas
 google-api-python-client
 textblob
 pillow
-util
+utils
