@@ -3,10 +3,10 @@ from textblob import TextBlob
 def classify(comments):
     """
     Classifies the sentiment of comments as Positive or Negative.
-    
+
     Args:
     comments (list): List of comment strings.
-    
+
     Returns:
     list: List of sentiment classifications ("Positive" or "Negative").
     """
@@ -17,13 +17,13 @@ def classify(comments):
         comment_sentiments.append(sentiment)
     return comment_sentiments
 
-def set_background('bg.jpg'):
+def set_background(image_url):
     """
     Generates CSS for setting a background image.
-    
+
     Args:
     image_url (str): URL of the background image.
-    
+
     Returns:
     str: CSS style string to set the background image.
     """
