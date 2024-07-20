@@ -6,10 +6,6 @@ import re
 from PIL import Image
 
 
-st.image('bg.jpg', use_column_width=True)
-st.title("YouTube Video Comments Sentiment Analysis")
-
-
 API_KEY = "AIzaSyDohi1bI6QnqMBbN7LOggmpWvabYM04j8c"
 
 def extract_video_id(url):
@@ -61,7 +57,23 @@ def classify_comments(comments):
         sentiment = "Positive" if analysis.sentiment.polarity > 0 else "Negative"
         comment_sentiments.append(sentiment)
     return comment_sentiments
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url('bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;  /* Ensure the background covers the full viewport height */
+    }
+    .sidebar .sidebar-content {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
+st.title("YouTube Video Comments Sentiment Analysis")
 
 
 
