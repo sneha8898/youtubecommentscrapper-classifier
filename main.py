@@ -1,14 +1,9 @@
 import streamlit as st
 import pandas as pd
 from googleapiclient.discovery import build
-from textblob import TextBlob
 import re
-from PIL import Image
-import time
 from util import classify, set_background
-
-
-set_background('bg.jpg')
+import time
 
 API_KEY = "AIzaSyDohi1bI6QnqMBbN7LOggmpWvabYM04j8c"
 
@@ -48,60 +43,9 @@ def fetch_youtube_video_details(video_id, api_key):
 
     return video_title, comments
 
-def classify_comments(comments):
-    comment_sentiments = []
-    for comment in comments:
-        analysis = TextBlob(comment)
-        sentiment = "Positive" if analysis.sentiment.polarity > 0 else "Negative"
-        comment_sentiments.append(sentiment)
-    return comment_sentiments
-
 # Set background image and styles
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url('https://static01.nyt.com/images/2019/07/23/arts/23youtube/merlin_155983551_a3c15fea-a1c7-4c46-8063-06a1fefe4673-superJumbo.jpg') no-repeat center center fixed;
-        background-size: cover;
-        min-height: 100vh;
-        color: #ffffff; /* Set text color for better readability */
-    }
-    .sidebar .sidebar-content {
-        background-color: rgba(255, 255, 255, 0.7);
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .stButton > button {
-        background-color: #007bff; /* Bootstrap primary color */
-        color: white;
-        border-radius: 5px;
-    }
-    .stButton > button:hover {
-        background-color: #0056b3; /* Darker shade for hover */
-    }
-    .header {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 10px;
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    .footer {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 10px;
-        text-align: center;
-        font-size: 12px;
-    }
-    </style>
-    <div class="header">
-        Welcome to the YouTube Comments Sentiment Analysis App
-    </div>
-    <div class="footer">
-        Created by Sneha Agarwal
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+background_css = set_background('https://static01.nyt.com/images/2019/07/23/arts/23youtube/merlin_155983551_a3c15fea-a1c7-4c46-8063-06a1fefe4673-superJumbo.jpg')
+st.markdown(background_css, unsafe_allow_html=True)
 
 st.title("YouTube Video Comments Sentiment Analysis")
 
@@ -114,7 +58,7 @@ if st.button("Fetch Video Details and Comments"):
         if video_id:
             try:
                 video_title, comments = fetch_youtube_video_details(video_id, API_KEY)
-                comment_sentiments = classify_comments(comments)
+                comment_sentiments = classify(comments)
                 comments_df = pd.DataFrame({
                     "Comment": comments,
                     "Sentiment": comment_sentiments
