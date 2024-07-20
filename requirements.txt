@@ -1,6 +1,6 @@
 streamlit
 pandas
-googleapiclient.discovery
+google-api-python-client
 textblob
 re
 PIL
