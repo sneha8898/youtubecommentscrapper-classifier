@@ -44,7 +44,7 @@ def fetch_youtube_video_details(video_id, api_key):
     return video_title, comments
 
 # Set background image and styles
-background_css = set_background('https://static01.nyt.com/images/2019/07/23/arts/23youtube/merlin_155983551_a3c15fea-a1c7-4c46-8063-06a1fefe4673-superJumbo.jpg')
+background_css = set_background('bg.jpg')
 st.markdown(background_css, unsafe_allow_html=True)
 
 st.title("YouTube Video Comments Sentiment Analysis")
@@ -64,13 +64,7 @@ if st.button("Fetch Video Details and Comments"):
                     "Sentiment": comment_sentiments
                 })
 
-                # Add sentiment filter
-                sentiment_filter = st.selectbox(
-                    "Filter comments by sentiment",
-                    ["All", "Positive", "Negative"]
-                )
-                if sentiment_filter != "All":
-                    comments_df = comments_df[comments_df["Sentiment"] == sentiment_filter]
+               
 
                 st.write(f"**Video Title:** {video_title}")
                 st.write(comments_df)
