@@ -61,7 +61,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('bg.jpg') no-repeat center center fixed;
+        background: url('https://static01.nyt.com/images/2019/07/23/arts/23youtube/merlin_155983551_a3c15fea-a1c7-4c46-8063-06a1fefe4673-superJumbo.jpg') no-repeat center center fixed;
         background-size: cover;
         min-height: 100vh;  /* Ensure the background covers the full viewport height */
     }
