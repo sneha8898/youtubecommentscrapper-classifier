@@ -5,6 +5,10 @@ from textblob import TextBlob
 import re
 from PIL import Image
 import time
+from util import classify, set_background
+
+
+set_background('bg.jpg')
 
 API_KEY = "AIzaSyDohi1bI6QnqMBbN7LOggmpWvabYM04j8c"
 
