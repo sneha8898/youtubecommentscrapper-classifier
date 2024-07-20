@@ -3,6 +3,12 @@ import pandas as pd
 from googleapiclient.discovery import build
 from textblob import TextBlob
 import re
+from PIL import Image
+
+
+st.image('bg.jpg', use_column_width=True)
+st.title("YouTube Video Comments Sentiment Analysis")
+
 
 API_KEY = "AIzaSyDohi1bI6QnqMBbN7LOggmpWvabYM04j8c"
 
@@ -57,23 +63,10 @@ def classify_comments(comments):
     return comment_sentiments
 
 
-st.title("YouTube Video Comments Sentiment Analysis")
 
 
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url('bg.jpg') no-repeat center center fixed;
-        background-size: cover;
-    }
-    .sidebar .sidebar-content {
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
+
 
 
 video_url = st.text_input("Enter YouTube Video URL", placeholder="https://www.youtube.com/watch?v=VIDEO_ID")
