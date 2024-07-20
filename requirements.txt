@@ -2,6 +2,5 @@ streamlit
 pandas
 google-api-python-client
 textblob
-re
 PIL
 time
